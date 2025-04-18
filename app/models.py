@@ -1,12 +1,9 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import User
 
 # Customer Model
-class Customer(AbstractUser):
+class Customer(User):
     phone_number = models.CharField(max_length=15, unique=True, null=True, blank=True)
-    profile_picture = models.ImageField(upload_to="customer_profiles", null=True, blank=True)
-    district = models.CharField(max_length=100)
-    city = models.CharField(max_length=100)
     date_of_birth = models.DateField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
